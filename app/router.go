@@ -3,6 +3,7 @@ package app
 import (
 	"dimasfadilah/go-restful-api/controller"
 
+	"github.com/go-playground/validator/v10"
 	"github.com/julienschmidt/httprouter"
 )
 
@@ -16,4 +17,8 @@ func NewRouter(categoryController controller.CategoryController) *httprouter.Rou
 	router.DELETE("/api/categories/:categoryId", categoryController.Delete)
 
 	return router
+}
+
+func NewValidator() *validator.Validate {
+	return validator.New()
 }
